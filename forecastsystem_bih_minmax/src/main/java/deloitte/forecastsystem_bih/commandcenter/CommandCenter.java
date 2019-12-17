@@ -728,15 +728,15 @@ public class CommandCenter {
 			sRec.setAvgDewPoint3(rec.getAvgDewPoint3());
 			sRec.setAvgDewPoint4(rec.getAvgDewPoint3());
 			
-			sRec.setAvgFeelslike(rec.getAvgFeelslike());
-			sRec.setAvgFeelslike2(rec.getAvgFeelslike2());
-			sRec.setAvgFeelslike3(rec.getAvgFeelslike3());
-			sRec.setAvgFeelslike4(rec.getAvgFeelslike4());
+			sRec.setMinTemperature(rec.getMinTemperature());
+			sRec.setMinTemperature2(rec.getMinTemperature2());
+			sRec.setMinTemperature3(rec.getMinTemperature3());
+			sRec.setMinTemperature4(rec.getMinTemperature4());
 			
-			sRec.setAvgTemperature(rec.getAvgTemperature());
-			sRec.setAvgTemperature2(rec.getAvgTemperature2());
-			sRec.setAvgTemperature3(rec.getAvgTemperature3());
-			sRec.setAvgTemperature4(rec.getAvgTemperature4());
+			sRec.setMaxTemperature(rec.getMaxTemperature());
+			sRec.setMaxTemperature2(rec.getMaxTemperature2());
+			sRec.setMaxTemperature3(rec.getMaxTemperature3());
+			sRec.setMaxTemperature4(rec.getMaxTemperature4());
 			
 			sRec.setAvgHumidity(rec.getAvgHumidity());
 			sRec.setAvgHumidity2(rec.getAvgHumidity2());
@@ -802,15 +802,15 @@ public class CommandCenter {
 			sRec.setAvgDewPoint3(rec.getAvgDewPoint3());
 			sRec.setAvgDewPoint4(rec.getAvgDewPoint3());
 			
-			sRec.setAvgFeelslike(rec.getAvgFeelslike());
-			sRec.setAvgFeelslike2(rec.getAvgFeelslike2());
-			sRec.setAvgFeelslike3(rec.getAvgFeelslike3());
-			sRec.setAvgFeelslike4(rec.getAvgFeelslike4());
+			sRec.setMinTemperature(rec.getMinTemperature());
+			sRec.setMinTemperature2(rec.getMinTemperature2());
+			sRec.setMinTemperature3(rec.getMinTemperature3());
+			sRec.setMinTemperature4(rec.getMinTemperature4());
 			
-			sRec.setAvgTemperature(rec.getAvgTemperature());
-			sRec.setAvgTemperature2(rec.getAvgTemperature2());
-			sRec.setAvgTemperature3(rec.getAvgTemperature3());
-			sRec.setAvgTemperature4(rec.getAvgTemperature4());
+			sRec.setMaxTemperature(rec.getMaxTemperature());
+			sRec.setMaxTemperature2(rec.getMaxTemperature2());
+			sRec.setMaxTemperature3(rec.getMaxTemperature3());
+			sRec.setMaxTemperature4(rec.getMaxTemperature4());
 			
 			sRec.setAvgHumidity(rec.getAvgHumidity());
 			sRec.setAvgHumidity2(rec.getAvgHumidity2());

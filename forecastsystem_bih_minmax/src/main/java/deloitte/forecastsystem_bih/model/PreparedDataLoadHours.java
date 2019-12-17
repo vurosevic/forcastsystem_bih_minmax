@@ -49,11 +49,11 @@ public class PreparedDataLoadHours implements Serializable {
 	@Column(name="Holiday")
 	private Integer holiday;			
 	
-	@Column(name="AVG_Temperature4")
-	private Double avgTemperature4;
+	@Column(name="MAX_Temperature4")
+	private Double maxTemperature4;
 	
-	@Column(name="AVG_Feelslike4")
-	private Double avgFeelslike4;	
+	@Column(name="MIN_Temperature4")
+	private Double minTemperature4;	
 
 	@Column(name="AVG_Wind4")
 	private Double avgWind4;
@@ -76,11 +76,11 @@ public class PreparedDataLoadHours implements Serializable {
 	@Column(name="AVG_Load_real_data4")
 	private Double avgLoadRealData4;		
 	
-	@Column(name="AVG_Temperature3")
-	private Double avgTemperature3;
+	@Column(name="MAX_Temperature3")
+	private Double maxTemperature3;
 	
-	@Column(name="AVG_Feelslike3")
-	private Double avgFeelslike3;	
+	@Column(name="MIN_Temperature3")
+	private Double minTemperature3;	
 
 	@Column(name="AVG_Wind3")
 	private Double avgWind3;
@@ -103,11 +103,11 @@ public class PreparedDataLoadHours implements Serializable {
 	@Column(name="AVG_Load_real_data3")
 	private Double avgLoadRealData3;
 		
-	@Column(name="AVG_Temperature2")
-	private Double avgTemperature2;
+	@Column(name="MAX_Temperature2")
+	private Double maxTemperature2;
 	
-	@Column(name="AVG_Feelslike2")
-	private Double avgFeelslike2;	
+	@Column(name="MIN_Temperature2")
+	private Double minTemperature2;	
 
 	@Column(name="AVG_Wind2")
 	private Double avgWind2;
@@ -130,11 +130,11 @@ public class PreparedDataLoadHours implements Serializable {
 	@Column(name="AVG_Load_real_data2")
 	private Double avgLoadRealData2;
 	
-	@Column(name="AVG_Temperature")
-	private Double avgTemperature;
+	@Column(name="MAX_Temperature")
+	private Double maxTemperature;
 	
-	@Column(name="AVG_Feelslike")
-	private Double avgFeelslike;	
+	@Column(name="MIN_Temperature")
+	private Double minTemperature;	
 
 	@Column(name="AVG_Wind")
 	private Double avgWind;
@@ -155,8 +155,8 @@ public class PreparedDataLoadHours implements Serializable {
 	private Double avgLoadForecastSimilarDay;
 	
 	@Column(name="AVG_Load_real_data")
-	private Double avgLoadRealData;
-
+	private Double avgLoadRealData;	
+		
 	public Long getId() {
 		return id;
 	}
@@ -211,7 +211,7 @@ public class PreparedDataLoadHours implements Serializable {
 
 	public void setGodina(Integer godina) {
 		this.godina = godina;
-	}	
+	}
 
 	public Integer getHoliday() {
 		return holiday;
@@ -221,84 +221,20 @@ public class PreparedDataLoadHours implements Serializable {
 		this.holiday = holiday;
 	}
 
-	public Double getAvgLoadForecastArima4() {
-		return avgLoadForecastArima4;
+	public Double getMaxTemperature4() {
+		return maxTemperature4;
 	}
 
-	public void setAvgLoadForecastArima4(Double avgLoadForecastArima4) {
-		this.avgLoadForecastArima4 = avgLoadForecastArima4;
+	public void setMaxTemperature4(Double maxTemperature4) {
+		this.maxTemperature4 = maxTemperature4;
 	}
 
-	public Double getAvgLoadForecastSimilarDay4() {
-		return avgLoadForecastSimilarDay4;
+	public Double getMinTemperature4() {
+		return minTemperature4;
 	}
 
-	public void setAvgLoadForecastSimilarDay4(Double avgLoadForecastSimilarDay4) {
-		this.avgLoadForecastSimilarDay4 = avgLoadForecastSimilarDay4;
-	}
-
-	public Double getAvgLoadForecastArima3() {
-		return avgLoadForecastArima3;
-	}
-
-	public void setAvgLoadForecastArima3(Double avgLoadForecastArima3) {
-		this.avgLoadForecastArima3 = avgLoadForecastArima3;
-	}
-
-	public Double getAvgLoadForecastSimilarDay3() {
-		return avgLoadForecastSimilarDay3;
-	}
-
-	public void setAvgLoadForecastSimilarDay3(Double avgLoadForecastSimilarDay3) {
-		this.avgLoadForecastSimilarDay3 = avgLoadForecastSimilarDay3;
-	}
-
-	public Double getAvgLoadForecastArima2() {
-		return avgLoadForecastArima2;
-	}
-
-	public void setAvgLoadForecastArima2(Double avgLoadForecastArima2) {
-		this.avgLoadForecastArima2 = avgLoadForecastArima2;
-	}
-
-	public Double getAvgLoadForecastSimilarDay2() {
-		return avgLoadForecastSimilarDay2;
-	}
-
-	public void setAvgLoadForecastSimilarDay2(Double avgLoadForecastSimilarDay2) {
-		this.avgLoadForecastSimilarDay2 = avgLoadForecastSimilarDay2;
-	}
-
-	public Double getAvgLoadForecastArima() {
-		return avgLoadForecastArima;
-	}
-
-	public void setAvgLoadForecastArima(Double avgLoadForecastArima) {
-		this.avgLoadForecastArima = avgLoadForecastArima;
-	}
-
-	public Double getAvgLoadForecastSimilarDay() {
-		return avgLoadForecastSimilarDay;
-	}
-
-	public void setAvgLoadForecastSimilarDay(Double avgLoadForecastSimilarDay) {
-		this.avgLoadForecastSimilarDay = avgLoadForecastSimilarDay;
-	}
-
-	public Double getAvgTemperature4() {
-		return avgTemperature4;
-	}
-
-	public void setAvgTemperature4(Double avgTemperature4) {
-		this.avgTemperature4 = avgTemperature4;
-	}
-
-	public Double getAvgFeelslike4() {
-		return avgFeelslike4;
-	}
-
-	public void setAvgFeelslike4(Double avgFeelslike4) {
-		this.avgFeelslike4 = avgFeelslike4;
+	public void setMinTemperature4(Double minTemperature4) {
+		this.minTemperature4 = minTemperature4;
 	}
 
 	public Double getAvgWind4() {
@@ -333,6 +269,22 @@ public class PreparedDataLoadHours implements Serializable {
 		this.avgPressure4 = avgPressure4;
 	}
 
+	public Double getAvgLoadForecastArima4() {
+		return avgLoadForecastArima4;
+	}
+
+	public void setAvgLoadForecastArima4(Double avgLoadForecastArima4) {
+		this.avgLoadForecastArima4 = avgLoadForecastArima4;
+	}
+
+	public Double getAvgLoadForecastSimilarDay4() {
+		return avgLoadForecastSimilarDay4;
+	}
+
+	public void setAvgLoadForecastSimilarDay4(Double avgLoadForecastSimilarDay4) {
+		this.avgLoadForecastSimilarDay4 = avgLoadForecastSimilarDay4;
+	}
+
 	public Double getAvgLoadRealData4() {
 		return avgLoadRealData4;
 	}
@@ -341,20 +293,20 @@ public class PreparedDataLoadHours implements Serializable {
 		this.avgLoadRealData4 = avgLoadRealData4;
 	}
 
-	public Double getAvgTemperature3() {
-		return avgTemperature3;
+	public Double getMaxTemperature3() {
+		return maxTemperature3;
 	}
 
-	public void setAvgTemperature3(Double avgTemperature3) {
-		this.avgTemperature3 = avgTemperature3;
+	public void setMaxTemperature3(Double maxTemperature3) {
+		this.maxTemperature3 = maxTemperature3;
 	}
 
-	public Double getAvgFeelslike3() {
-		return avgFeelslike3;
+	public Double getMinTemperature3() {
+		return minTemperature3;
 	}
 
-	public void setAvgFeelslike3(Double avgFeelslike3) {
-		this.avgFeelslike3 = avgFeelslike3;
+	public void setMinTemperature3(Double minTemperature3) {
+		this.minTemperature3 = minTemperature3;
 	}
 
 	public Double getAvgWind3() {
@@ -389,6 +341,22 @@ public class PreparedDataLoadHours implements Serializable {
 		this.avgPressure3 = avgPressure3;
 	}
 
+	public Double getAvgLoadForecastArima3() {
+		return avgLoadForecastArima3;
+	}
+
+	public void setAvgLoadForecastArima3(Double avgLoadForecastArima3) {
+		this.avgLoadForecastArima3 = avgLoadForecastArima3;
+	}
+
+	public Double getAvgLoadForecastSimilarDay3() {
+		return avgLoadForecastSimilarDay3;
+	}
+
+	public void setAvgLoadForecastSimilarDay3(Double avgLoadForecastSimilarDay3) {
+		this.avgLoadForecastSimilarDay3 = avgLoadForecastSimilarDay3;
+	}
+
 	public Double getAvgLoadRealData3() {
 		return avgLoadRealData3;
 	}
@@ -397,20 +365,20 @@ public class PreparedDataLoadHours implements Serializable {
 		this.avgLoadRealData3 = avgLoadRealData3;
 	}
 
-	public Double getAvgTemperature2() {
-		return avgTemperature2;
+	public Double getMaxTemperature2() {
+		return maxTemperature2;
 	}
 
-	public void setAvgTemperature2(Double avgTemperature2) {
-		this.avgTemperature2 = avgTemperature2;
+	public void setMaxTemperature2(Double maxTemperature2) {
+		this.maxTemperature2 = maxTemperature2;
 	}
 
-	public Double getAvgFeelslike2() {
-		return avgFeelslike2;
+	public Double getMinTemperature2() {
+		return minTemperature2;
 	}
 
-	public void setAvgFeelslike2(Double avgFeelslike2) {
-		this.avgFeelslike2 = avgFeelslike2;
+	public void setMinTemperature2(Double minTemperature2) {
+		this.minTemperature2 = minTemperature2;
 	}
 
 	public Double getAvgWind2() {
@@ -445,6 +413,22 @@ public class PreparedDataLoadHours implements Serializable {
 		this.avgPressure2 = avgPressure2;
 	}
 
+	public Double getAvgLoadForecastArima2() {
+		return avgLoadForecastArima2;
+	}
+
+	public void setAvgLoadForecastArima2(Double avgLoadForecastArima2) {
+		this.avgLoadForecastArima2 = avgLoadForecastArima2;
+	}
+
+	public Double getAvgLoadForecastSimilarDay2() {
+		return avgLoadForecastSimilarDay2;
+	}
+
+	public void setAvgLoadForecastSimilarDay2(Double avgLoadForecastSimilarDay2) {
+		this.avgLoadForecastSimilarDay2 = avgLoadForecastSimilarDay2;
+	}
+
 	public Double getAvgLoadRealData2() {
 		return avgLoadRealData2;
 	}
@@ -453,20 +437,20 @@ public class PreparedDataLoadHours implements Serializable {
 		this.avgLoadRealData2 = avgLoadRealData2;
 	}
 
-	public Double getAvgTemperature() {
-		return avgTemperature;
+	public Double getMaxTemperature() {
+		return maxTemperature;
 	}
 
-	public void setAvgTemperature(Double avgTemperature) {
-		this.avgTemperature = avgTemperature;
+	public void setMaxTemperature(Double maxTemperature) {
+		this.maxTemperature = maxTemperature;
 	}
 
-	public Double getAvgFeelslike() {
-		return avgFeelslike;
+	public Double getMinTemperature() {
+		return minTemperature;
 	}
 
-	public void setAvgFeelslike(Double avgFeelslike) {
-		this.avgFeelslike = avgFeelslike;
+	public void setMinTemperature(Double minTemperature) {
+		this.minTemperature = minTemperature;
 	}
 
 	public Double getAvgWind() {
@@ -501,28 +485,44 @@ public class PreparedDataLoadHours implements Serializable {
 		this.avgPressure = avgPressure;
 	}
 
+	public Double getAvgLoadForecastArima() {
+		return avgLoadForecastArima;
+	}
+
+	public void setAvgLoadForecastArima(Double avgLoadForecastArima) {
+		this.avgLoadForecastArima = avgLoadForecastArima;
+	}
+
+	public Double getAvgLoadForecastSimilarDay() {
+		return avgLoadForecastSimilarDay;
+	}
+
+	public void setAvgLoadForecastSimilarDay(Double avgLoadForecastSimilarDay) {
+		this.avgLoadForecastSimilarDay = avgLoadForecastSimilarDay;
+	}
+
 	public Double getAvgLoadRealData() {
 		return avgLoadRealData;
 	}
 
 	public void setAvgLoadRealData(Double avgLoadRealData) {
 		this.avgLoadRealData = avgLoadRealData;
-	}	
-		
+	}
+
 	public double[] preparedVector() {
 		double[] retval = {
 			this.loadHour,
 			this.tipDana, this.dan, this.mesec, this.godina, this.holiday,
-			this.avgTemperature4, this.avgFeelslike4, this.avgWind4, 
+			this.maxTemperature4, this.minTemperature4, this.avgWind4, 
 			this.avgHumidity4, this.avgDewPoint4, this.avgPressure4, 
 			this.avgLoadForecastArima4, this.avgLoadForecastSimilarDay4, this.avgLoadRealData4,
-			this.avgTemperature3, this.avgFeelslike3, this.avgWind3, 
+			this.maxTemperature3, this.minTemperature3, this.avgWind3, 
 			this.avgHumidity3, this.avgDewPoint3, this.avgPressure3, 
 			this.avgLoadForecastArima3, this.avgLoadForecastSimilarDay3,  this.avgLoadRealData3,
-			this.avgTemperature2, this.avgFeelslike2, this.avgWind2, 
+			this.maxTemperature2, this.minTemperature2, this.avgWind2, 
 			this.avgHumidity2, this.avgDewPoint2, this.avgPressure2, 
 			this.avgLoadForecastArima2, this.avgLoadForecastSimilarDay2,  this.avgLoadRealData2,		
-			this.avgTemperature, this.avgFeelslike, this.avgWind, 
+			this.maxTemperature, this.minTemperature, this.avgWind, 
 			this.avgHumidity, this.avgDewPoint, this.avgPressure, 
 			this.avgLoadForecastArima, this.avgLoadForecastSimilarDay};			
 		return retval;
@@ -537,15 +537,15 @@ public class PreparedDataLoadHours implements Serializable {
 			this.loadHour,
 			cal.get(Calendar.DAY_OF_WEEK), cal.get(Calendar.DAY_OF_MONTH), (cal.get(Calendar.MONTH)+1), cal.get(Calendar.YEAR), 		
 			
-			this.avgTemperature3, this.avgFeelslike3, this.avgWind3, 
+			this.maxTemperature3, this.minTemperature3, this.avgWind3, 
 			this.avgHumidity3, this.avgDewPoint3, this.avgPressure3, 
 			this.avgLoadForecastArima3, this.avgLoadForecastSimilarDay3,  this.avgLoadRealData3,
 			
-			this.avgTemperature2, this.avgFeelslike2, this.avgWind2, 
+			this.maxTemperature2, this.minTemperature2, this.avgWind2, 
 			this.avgHumidity2, this.avgDewPoint2, this.avgPressure2, 
 			this.avgLoadForecastArima2, this.avgLoadForecastSimilarDay2,  this.avgLoadRealData2,
 			
-			this.avgTemperature, this.avgFeelslike, this.avgWind, 
+			this.maxTemperature, this.minTemperature, this.avgWind, 
 			this.avgHumidity, this.avgDewPoint, this.avgPressure, 
 			this.avgLoadForecastArima, this.avgLoadForecastSimilarDay,  this.avgLoadRealData,
 			
@@ -565,11 +565,11 @@ public class PreparedDataLoadHours implements Serializable {
 			this.loadHour,
 			cal.get(Calendar.DAY_OF_WEEK), cal.get(Calendar.DAY_OF_MONTH), (cal.get(Calendar.MONTH)+1), cal.get(Calendar.YEAR), 		
 								
-			this.avgTemperature2, this.avgFeelslike2, this.avgWind2, 
+			this.maxTemperature2, this.minTemperature2, this.avgWind2, 
 			this.avgHumidity2, this.avgDewPoint2, this.avgPressure2, 
 			this.avgLoadForecastArima2, this.avgLoadForecastSimilarDay2,  this.avgLoadRealData2,
 			
-			this.avgTemperature, this.avgFeelslike, this.avgWind, 
+			this.maxTemperature, this.minTemperature, this.avgWind, 
 			this.avgHumidity, this.avgDewPoint, this.avgPressure, 
 			this.avgLoadForecastArima, this.avgLoadForecastSimilarDay,  this.avgLoadRealData,
 			

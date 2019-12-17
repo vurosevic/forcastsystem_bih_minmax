@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="vw_input_data_partial_by_hour_bih")
+@Table(name="vw_input_data_partial_by_hour_bih2")
 public class PartialInputDataHourlyStart implements Serializable {
 
 	/**
@@ -46,11 +46,11 @@ public class PartialInputDataHourlyStart implements Serializable {
 	@Column(name="Holiday", insertable = false, updatable = false)
 	private Integer holiday;			
 	
-	@Column(name="AVG_Temperature4", insertable = false, updatable = false)
-	private Double avgTemperature4;
+	@Column(name="MAX_Temperature4", insertable = false, updatable = false)
+	private Double maxTemperature4;
 	
-	@Column(name="AVG_Feelslike4", insertable = false, updatable = false)
-	private Double avgFeelslike4;	
+	@Column(name="MIN_Temperature4", insertable = false, updatable = false)
+	private Double minTemperature4;	
 
 	@Column(name="AVG_Wind4", insertable = false, updatable = false)
 	private Double avgWind4;
@@ -73,11 +73,11 @@ public class PartialInputDataHourlyStart implements Serializable {
 	@Column(name="AVG_Load_real_data4", insertable = false, updatable = false)
 	private Double avgLoadRealData4;		
 	
-	@Column(name="AVG_Temperature3", insertable = false, updatable = false)
-	private Double avgTemperature3;
+	@Column(name="MAX_Temperature3", insertable = false, updatable = false)
+	private Double maxTemperature3;
 	
-	@Column(name="AVG_Feelslike3", insertable = false, updatable = false)
-	private Double avgFeelslike3;	
+	@Column(name="MIN_Temperature3", insertable = false, updatable = false)
+	private Double minTemperature3;	
 
 	@Column(name="AVG_Wind3", insertable = false, updatable = false)
 	private Double avgWind3;
@@ -100,11 +100,11 @@ public class PartialInputDataHourlyStart implements Serializable {
 	@Column(name="AVG_Load_real_data3", insertable = false, updatable = false)
 	private Double avgLoadRealData3;
 		
-	@Column(name="AVG_Temperature2", insertable = false, updatable = false)
-	private Double avgTemperature2;
+	@Column(name="MAX_Temperature2", insertable = false, updatable = false)
+	private Double maxTemperature2;
 	
-	@Column(name="AVG_Feelslike2", insertable = false, updatable = false)
-	private Double avgFeelslike2;	
+	@Column(name="MIN_Temperature2", insertable = false, updatable = false)
+	private Double minTemperature2;	
 
 	@Column(name="AVG_Wind2", insertable = false, updatable = false)
 	private Double avgWind2;
@@ -127,11 +127,11 @@ public class PartialInputDataHourlyStart implements Serializable {
 	@Column(name="AVG_Load_real_data2", insertable = false, updatable = false)
 	private Double avgLoadRealData2;
 	
-	@Column(name="AVG_Temperature", insertable = false, updatable = false)
-	private Double avgTemperature;
+	@Column(name="MAX_Temperature", insertable = false, updatable = false)
+	private Double maxTemperature;
 	
-	@Column(name="AVG_Feelslike", insertable = false, updatable = false)
-	private Double avgFeelslike;	
+	@Column(name="MIN_Temperature", insertable = false, updatable = false)
+	private Double minTemperature;	
 
 	@Column(name="AVG_Wind", insertable = false, updatable = false)
 	private Double avgWind;
@@ -161,7 +161,7 @@ public class PartialInputDataHourlyStart implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Long getCountryFk() {
 		return countryFk;
 	}
@@ -218,20 +218,20 @@ public class PartialInputDataHourlyStart implements Serializable {
 		this.holiday = holiday;
 	}
 
-	public Double getAvgTemperature4() {
-		return avgTemperature4;
+	public Double getMaxTemperature4() {
+		return maxTemperature4;
 	}
 
-	public void setAvgTemperature4(Double avgTemperature4) {
-		this.avgTemperature4 = avgTemperature4;
+	public void setMaxTemperature4(Double maxTemperature4) {
+		this.maxTemperature4 = maxTemperature4;
 	}
 
-	public Double getAvgFeelslike4() {
-		return avgFeelslike4;
+	public Double getMinTemperature4() {
+		return minTemperature4;
 	}
 
-	public void setAvgFeelslike4(Double avgFeelslike4) {
-		this.avgFeelslike4 = avgFeelslike4;
+	public void setMinTemperature4(Double minTemperature4) {
+		this.minTemperature4 = minTemperature4;
 	}
 
 	public Double getAvgWind4() {
@@ -290,20 +290,20 @@ public class PartialInputDataHourlyStart implements Serializable {
 		this.avgLoadRealData4 = avgLoadRealData4;
 	}
 
-	public Double getAvgTemperature3() {
-		return avgTemperature3;
+	public Double getMaxTemperature3() {
+		return maxTemperature3;
 	}
 
-	public void setAvgTemperature3(Double avgTemperature3) {
-		this.avgTemperature3 = avgTemperature3;
+	public void setMaxTemperature3(Double maxTemperature3) {
+		this.maxTemperature3 = maxTemperature3;
 	}
 
-	public Double getAvgFeelslike3() {
-		return avgFeelslike3;
+	public Double getMinTemperature3() {
+		return minTemperature3;
 	}
 
-	public void setAvgFeelslike3(Double avgFeelslike3) {
-		this.avgFeelslike3 = avgFeelslike3;
+	public void setMinTemperature3(Double minTemperature3) {
+		this.minTemperature3 = minTemperature3;
 	}
 
 	public Double getAvgWind3() {
@@ -362,20 +362,20 @@ public class PartialInputDataHourlyStart implements Serializable {
 		this.avgLoadRealData3 = avgLoadRealData3;
 	}
 
-	public Double getAvgTemperature2() {
-		return avgTemperature2;
+	public Double getMaxTemperature2() {
+		return maxTemperature2;
 	}
 
-	public void setAvgTemperature2(Double avgTemperature2) {
-		this.avgTemperature2 = avgTemperature2;
+	public void setMaxTemperature2(Double maxTemperature2) {
+		this.maxTemperature2 = maxTemperature2;
 	}
 
-	public Double getAvgFeelslike2() {
-		return avgFeelslike2;
+	public Double getMinTemperature2() {
+		return minTemperature2;
 	}
 
-	public void setAvgFeelslike2(Double avgFeelslike2) {
-		this.avgFeelslike2 = avgFeelslike2;
+	public void setMinTemperature2(Double minTemperature2) {
+		this.minTemperature2 = minTemperature2;
 	}
 
 	public Double getAvgWind2() {
@@ -434,20 +434,20 @@ public class PartialInputDataHourlyStart implements Serializable {
 		this.avgLoadRealData2 = avgLoadRealData2;
 	}
 
-	public Double getAvgTemperature() {
-		return avgTemperature;
+	public Double getMaxTemperature() {
+		return maxTemperature;
 	}
 
-	public void setAvgTemperature(Double avgTemperature) {
-		this.avgTemperature = avgTemperature;
+	public void setMaxTemperature(Double maxTemperature) {
+		this.maxTemperature = maxTemperature;
 	}
 
-	public Double getAvgFeelslike() {
-		return avgFeelslike;
+	public Double getMinTemperature() {
+		return minTemperature;
 	}
 
-	public void setAvgFeelslike(Double avgFeelslike) {
-		this.avgFeelslike = avgFeelslike;
+	public void setMinTemperature(Double minTemperature) {
+		this.minTemperature = minTemperature;
 	}
 
 	public Double getAvgWind() {
@@ -504,7 +504,9 @@ public class PartialInputDataHourlyStart implements Serializable {
 
 	public void setAvgLoadRealData(Double avgLoadRealData) {
 		this.avgLoadRealData = avgLoadRealData;
-	}	
+	}
+
+
 	
 	
 }
