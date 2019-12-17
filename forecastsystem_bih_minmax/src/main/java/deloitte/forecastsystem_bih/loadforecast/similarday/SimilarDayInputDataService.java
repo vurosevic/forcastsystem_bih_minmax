@@ -64,18 +64,18 @@ public class SimilarDayInputDataService {
 		pdlh = preparedDataLoadHoursService.findByDate(i, cal.get(Calendar.DAY_OF_MONTH), 
 														  cal.get(Calendar.MONTH)+1, cal.get(Calendar.YEAR), con);
 		
-		inputDataForToday[i].setAvgTemperature2(pdlh.get(0).getAvgTemperature());
-		inputDataForToday[i].setAvgFeelslike2(pdlh.get(0).getAvgFeelslike());
+		inputDataForToday[i].setMaxTemperature2(pdlh.get(0).getMaxTemperature());
+		inputDataForToday[i].setMinTemperature2(pdlh.get(0).getMinTemperature());
 		inputDataForToday[i].setAvgLoadRealData2(pdlh.get(0).getAvgLoadRealData());
 
 		// avgTemperature3		
-		inputDataForToday[i].setAvgTemperature3(pdlh.get(0).getAvgTemperature2());
-		inputDataForToday[i].setAvgFeelslike3(pdlh.get(0).getAvgFeelslike2());
+		inputDataForToday[i].setMaxTemperature3(pdlh.get(0).getMaxTemperature2());
+		inputDataForToday[i].setMinTemperature3(pdlh.get(0).getMinTemperature2());
 		inputDataForToday[i].setAvgLoadRealData3(pdlh.get(0).getAvgLoadRealData2());
 		
 		// avgTemperature4		
-		inputDataForToday[i].setAvgTemperature4(pdlh.get(0).getAvgTemperature3());
-		inputDataForToday[i].setAvgFeelslike4(pdlh.get(0).getAvgFeelslike3());
+		inputDataForToday[i].setMaxTemperature4(pdlh.get(0).getMaxTemperature3());
+		inputDataForToday[i].setMinTemperature4(pdlh.get(0).getMinTemperature3());
 		inputDataForToday[i].setAvgLoadRealData4(pdlh.get(0).getAvgLoadRealData3());		
 		
 		inputDataForToday[i].setAvgLoadRealData(0.0);
@@ -137,19 +137,19 @@ public class SimilarDayInputDataService {
 			List<Double> forecastLoad = historyLoadForecastService.findByDateLoadAndHour(con, calYesterday.getTime(), i);
 			
 			// avgForecastTemperature
-			inputDataForTomorrow[i].setAvgTemperature2(weatherForecastResults.get(0).getTemperature());
-			inputDataForTomorrow[i].setAvgFeelslike2(weatherForecastResults.get(0).getApparentTemperature());
+			inputDataForTomorrow[i].setMaxTemperature2(weatherForecastResults.get(0).getTemperature());
+			inputDataForTomorrow[i].setMinTemperature2(weatherForecastResults.get(0).getApparentTemperature());
 			inputDataForTomorrow[i].setAvgLoadRealData2(forecastLoad.get(0)); 
 
-			// avgTemperature2		
-			inputDataForTomorrow[i].setAvgTemperature3(pdlh.get(0).getAvgTemperature());
-			inputDataForTomorrow[i].setAvgFeelslike3(pdlh.get(0).getAvgFeelslike());
-			inputDataForTomorrow[i].setAvgLoadRealData3(pdlh.get(0).getAvgLoadRealData());
-			
-			// avgTemperature3		
-			inputDataForTomorrow[i].setAvgTemperature4(pdlh.get(0).getAvgTemperature2());
-			inputDataForTomorrow[i].setAvgFeelslike4(pdlh.get(0).getAvgFeelslike2());
-			inputDataForTomorrow[i].setAvgLoadRealData4(pdlh.get(0).getAvgLoadRealData2());		
+//			// avgTemperature2		
+//			inputDataForTomorrow[i].setMaxTemperature3(pdlh.get(0).getAvgTemperature());
+//			inputDataForTomorrow[i].setMinFeelslike3(pdlh.get(0).getAvgFeelslike());
+//			inputDataForTomorrow[i].setAvgLoadRealData3(pdlh.get(0).getAvgLoadRealData());
+//			
+//			// avgTemperature3		
+//			inputDataForTomorrow[i].setMaxTemperature4(pdlh.get(0).getAvgTemperature2());
+//			inputDataForTomorrow[i].setMinFeelslike4(pdlh.get(0).getAvgFeelslike2());
+//			inputDataForTomorrow[i].setAvgLoadRealData4(pdlh.get(0).getAvgLoadRealData2());		
 			
 			inputDataForTomorrow[i].setAvgLoadRealData(0.0);
 			inputDataForTomorrow[i].setId(0L); 			

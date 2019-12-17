@@ -82,9 +82,9 @@ public class PartialSimilarDayService implements CommandLineRunner {
 		//similarDayService.set(con, start);		
 		//start++;
 		
-		PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(number, recData.getAvgTemperature4() , recData.getAvgFeelslike4() , recData.getAvgLoadRealData4(), 
-																			  	  recData.getAvgTemperature3() , recData.getAvgFeelslike3() , recData.getAvgLoadRealData3(), 
-																			  	  recData.getAvgTemperature2() , recData.getAvgFeelslike2() , recData.getAvgLoadRealData2(), 
+		PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(number, recData.getMaxTemperature4() , recData.getMinTemperature4() , recData.getAvgLoadRealData4(), 
+																			  	  recData.getMaxTemperature3() , recData.getMinTemperature3() , recData.getAvgLoadRealData3(), 
+																			  	  recData.getMaxTemperature2() , recData.getMinTemperature2() , recData.getAvgLoadRealData2(), 
 																			  	  recData.getAvgLoadRealData());		
 		similarDayService.calculateDistance(rec); 
 			

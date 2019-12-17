@@ -1,8 +1,5 @@
 package deloitte.forecastsystem_bih;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +17,7 @@ import deloitte.forecastsystem_bih.service.LoadForecastSimilarDayService;
 import deloitte.forecastsystem_bih.service.PreparedDataLoadHoursService;
 
 
-//@SpringBootApplication(scanBasePackages={"deloitte.*"})
+@SpringBootApplication(scanBasePackages={"deloitte.*"})
 public class TestSimilarDay implements CommandLineRunner {
 	
 	@Autowired
@@ -71,9 +68,9 @@ public class TestSimilarDay implements CommandLineRunner {
 		
 		//PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(8410L, -3.0,-3.0,687.0,-2.0,-2.0,690.0,-3.0,-3.0,705.0, 624.0); 
 		//PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(11500L, 10.0,10.0,360.0, 10.0, 10.0,376.0, 11.0, 11.0, 369.0, 372.0);
-		PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(number, recData.getAvgTemperature4() , recData.getAvgFeelslike4() , recData.getAvgLoadRealData4(), 
-																			  	  recData.getAvgTemperature3() , recData.getAvgFeelslike3() , recData.getAvgLoadRealData3(), 
-																			  	  recData.getAvgTemperature2() , recData.getAvgFeelslike2() , recData.getAvgLoadRealData2(), 
+		PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(number, recData.getMaxTemperature4() , recData.getMinTemperature4() , recData.getAvgLoadRealData4(), 
+																			  	  recData.getMaxTemperature3() , recData.getMinTemperature3() , recData.getAvgLoadRealData3(), 
+																			  	  recData.getMaxTemperature2() , recData.getMinTemperature2() , recData.getAvgLoadRealData2(), 
 																			  	  recData.getAvgLoadRealData());
 		
 		//PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(11500L, 10.0,10.0,360.0, 10.0, 10.0,376.0, 11.0, 11.0, 369.0, 372.0);
@@ -101,7 +98,7 @@ public class TestSimilarDay implements CommandLineRunner {
 		lfsd.setLoadMinute(0); 
 		loadForecastSimilarDayService.save(lfsd);
 		
-		System.out.println(recData.getAvgLoadRealData() + "," + similarDayService.getForecast());
+		System.out.println("No:" + number + " --- " + recData.getAvgLoadRealData() + "," + similarDayService.getForecast());
 		
 		} // number
 		

@@ -2,14 +2,14 @@ package deloitte.forecastsystem_bih.model.communication;
 public class PreparedDataLoadHoursRecord {
 	
 	Long id;
-	Double avgTemperature4;
-	Double avgFeelslike4;
+	Double maxTemperature4;
+	Double minTemperature4;
 	Double avgLoadRealData4;
-	Double avgTemperature3;
-	Double avgFeelslike3;
+	Double maxTemperature3;
+	Double minTemperature3;
 	Double avgLoadRealData3;
-	Double avgTemperature2;
-	Double avgFeelslike2;
+	Double maxTemperature2;
+	Double minTemperature2;
 	Double avgLoadRealData2;
 	Double avgLoadRealData;
 	
@@ -19,19 +19,19 @@ public class PreparedDataLoadHoursRecord {
 	}
 	
 	public PreparedDataLoadHoursRecord( Long id, 
-										Double avgTemperature4, Double avgFeelslike4,   Double avgLoadRealData4,
-										Double avgTemperature3, Double avgFeelslike3, 	Double avgLoadRealData3, 
-										Double avgTemperature2, Double avgFeelslike2, 	Double avgLoadRealData2,
+										Double maxTemperature4, Double minTemperature4,     Double avgLoadRealData4,
+										Double maxTemperature3, Double minTemperature3, 	Double avgLoadRealData3, 
+										Double maxTemperature2, Double minTemperature2, 	Double avgLoadRealData2,
 										Double avgLoadRealData) {
 		this.id = id;
-		this.avgTemperature4 = avgTemperature4;
-		this.avgFeelslike4 = avgFeelslike4;
+		this.maxTemperature4 = maxTemperature4;
+		this.minTemperature4 = minTemperature4;
 		this.avgLoadRealData4 = avgLoadRealData4;		
-		this.avgTemperature3 = avgTemperature3;
-		this.avgFeelslike3 = avgFeelslike3;
+		this.maxTemperature3 = maxTemperature3;
+		this.minTemperature3 = minTemperature3;
 		this.avgLoadRealData3 = avgLoadRealData3;		
-		this.avgTemperature2 = avgTemperature2;
-		this.avgFeelslike2 = avgFeelslike2;
+		this.maxTemperature2 = maxTemperature2;
+		this.minTemperature2 = minTemperature2;
 		this.avgLoadRealData2 = avgLoadRealData2;		
 		this.avgLoadRealData = avgLoadRealData;				
 	}
@@ -44,22 +44,6 @@ public class PreparedDataLoadHoursRecord {
 		this.id = id;
 	}
 
-	public Double getAvgTemperature4() {
-		return avgTemperature4;
-	}
-
-	public void setAvgTemperature4(Double avgTemperature4) {
-		this.avgTemperature4 = avgTemperature4;
-	}
-
-	public Double getAvgFeelslike4() {
-		return avgFeelslike4;
-	}
-
-	public void setAvgFeelslike4(Double avgFeelslike4) {
-		this.avgFeelslike4 = avgFeelslike4;
-	}
-
 	public Double getAvgLoadRealData4() {
 		return avgLoadRealData4;
 	}
@@ -68,44 +52,12 @@ public class PreparedDataLoadHoursRecord {
 		this.avgLoadRealData4 = avgLoadRealData4;
 	}
 
-	public Double getAvgTemperature3() {
-		return avgTemperature3;
-	}
-
-	public void setAvgTemperature3(Double avgTemperature3) {
-		this.avgTemperature3 = avgTemperature3;
-	}
-
-	public Double getAvgFeelslike3() {
-		return avgFeelslike3;
-	}
-
-	public void setAvgFeelslike3(Double avgFeelslike3) {
-		this.avgFeelslike3 = avgFeelslike3;
-	}
-
 	public Double getAvgLoadRealData3() {
 		return avgLoadRealData3;
 	}
 
 	public void setAvgLoadRealData3(Double avgLoadRealData3) {
 		this.avgLoadRealData3 = avgLoadRealData3;
-	}
-
-	public Double getAvgTemperature2() {
-		return avgTemperature2;
-	}
-
-	public void setAvgTemperature2(Double avgTemperature2) {
-		this.avgTemperature2 = avgTemperature2;
-	}
-
-	public Double getAvgFeelslike2() {
-		return avgFeelslike2;
-	}
-
-	public void setAvgFeelslike2(Double avgFeelslike2) {
-		this.avgFeelslike2 = avgFeelslike2;
 	}
 
 	public Double getAvgLoadRealData2() {
@@ -123,5 +75,55 @@ public class PreparedDataLoadHoursRecord {
 	public void setAvgLoadRealData(Double avgLoadRealData) {
 		this.avgLoadRealData = avgLoadRealData;
 	}
+
+	public Double getMaxTemperature4() {
+		return maxTemperature4;
+	}
+
+	public void setMaxTemperature4(Double maxTemperature4) {
+		this.maxTemperature4 = maxTemperature4;
+	}
+
+	public Double getMinTemperature4() {
+		return minTemperature4;
+	}
+
+	public void setMinTemperature4(Double minTemperature4) {
+		this.minTemperature4 = minTemperature4;
+	}
+
+	public Double getMaxTemperature3() {
+		return maxTemperature3;
+	}
+
+	public void setMaxTemperature3(Double maxTemperature3) {
+		this.maxTemperature3 = maxTemperature3;
+	}
+
+	public Double getMinTemperature3() {
+		return minTemperature3;
+	}
+
+	public void setMinTemperature3(Double minTemperature3) {
+		this.minTemperature3 = minTemperature3;
+	}
+
+	public Double getMaxTemperature2() {
+		return maxTemperature2;
+	}
+
+	public void setMaxTemperature2(Double maxTemperature2) {
+		this.maxTemperature2 = maxTemperature2;
+	}
+
+	public Double getMinTemperature2() {
+		return minTemperature2;
+	}
+
+	public void setMinTemperature2(Double minTemperature2) {
+		this.minTemperature2 = minTemperature2;
+	}
+	
+	
 	
 }

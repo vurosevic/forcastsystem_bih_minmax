@@ -120,13 +120,13 @@ public class SimilarDayService {
 		
 		for (PreparedDataLoadHoursRecord rec : data) {
 			
-			normTemperature4 = Math.abs(rec.getAvgTemperature4() - this.minTemperature) / tempConst;
-			normTemperature3 = Math.abs(rec.getAvgTemperature3() - this.minTemperature) / tempConst;
-			normTemperature2 = Math.abs(rec.getAvgTemperature2() - this.minTemperature) / tempConst;
+			normTemperature4 = Math.abs(rec.getMaxTemperature4() - this.minTemperature) / tempConst;
+			normTemperature3 = Math.abs(rec.getMaxTemperature3() - this.minTemperature) / tempConst;
+			normTemperature2 = Math.abs(rec.getMaxTemperature2() - this.minTemperature) / tempConst;
 			
-			normFeelslike4 = Math.abs(rec.getAvgFeelslike4() - this.minFeelslike) / feelslikeConst;
-			normFeelslike3 = Math.abs(rec.getAvgFeelslike3() - this.minFeelslike) / feelslikeConst;
-			normFeelslike2 = Math.abs(rec.getAvgFeelslike2() - this.minFeelslike) / feelslikeConst;
+			normFeelslike4 = Math.abs(rec.getMinTemperature4() - this.minFeelslike) / feelslikeConst;
+			normFeelslike3 = Math.abs(rec.getMinTemperature3() - this.minFeelslike) / feelslikeConst;
+			normFeelslike2 = Math.abs(rec.getMinTemperature2() - this.minFeelslike) / feelslikeConst;
 			
 			normRealLoad4 = Math.abs(rec.getAvgLoadRealData4() - this.minRealLoad) / realLoadConst;
 			normRealLoad3 = Math.abs(rec.getAvgLoadRealData3() - this.minRealLoad) / realLoadConst;
@@ -157,13 +157,13 @@ public class SimilarDayService {
 		Double feelslikeConst = (this.maxFeelslike - this.minFeelslike);
 		Double realLoadConst = (this.maxRealLoad - this.minRealLoad);
 		
-		normTemperature4 = Math.abs(rec.getAvgTemperature4() - this.minTemperature) / tempConst;
-		normTemperature3 = Math.abs(rec.getAvgTemperature3() - this.minTemperature) / tempConst;
-		normTemperature2 = Math.abs(rec.getAvgTemperature2() - this.minTemperature) / tempConst;
+		normTemperature4 = Math.abs(rec.getMaxTemperature4() - this.minTemperature) / tempConst;
+		normTemperature3 = Math.abs(rec.getMaxTemperature3() - this.minTemperature) / tempConst;
+		normTemperature2 = Math.abs(rec.getMaxTemperature2() - this.minTemperature) / tempConst;
 		
-		normFeelslike4 = Math.abs(rec.getAvgFeelslike4() - this.minFeelslike) / feelslikeConst;
-		normFeelslike3 = Math.abs(rec.getAvgFeelslike3() - this.minFeelslike) / feelslikeConst;
-		normFeelslike2 = Math.abs(rec.getAvgFeelslike2() - this.minFeelslike) / feelslikeConst;
+		normFeelslike4 = Math.abs(rec.getMinTemperature4() - this.minFeelslike) / feelslikeConst;
+		normFeelslike3 = Math.abs(rec.getMinTemperature3() - this.minFeelslike) / feelslikeConst;
+		normFeelslike2 = Math.abs(rec.getMinTemperature2() - this.minFeelslike) / feelslikeConst;
 		
 		normRealLoad4 = Math.abs(rec.getAvgLoadRealData4() - this.minRealLoad) / realLoadConst;
 		normRealLoad3 = Math.abs(rec.getAvgLoadRealData3() - this.minRealLoad) / realLoadConst;
@@ -174,14 +174,14 @@ public class SimilarDayService {
 			Double dist = 0.0;			
 			Double sum = 0.0;
 			
-			sum += Math.pow(normTemperature4 - normalizedData.get(i).getAvgTemperature4(),2) * 1;
-			sum += Math.pow(normFeelslike4 - normalizedData.get(i).getAvgFeelslike4(),2) * 1.4;
+			sum += Math.pow(normTemperature4 - normalizedData.get(i).getMaxTemperature4(),2) * 1;
+			sum += Math.pow(normFeelslike4 - normalizedData.get(i).getMinTemperature4(),2) * 1.4;
 			sum += Math.pow(normRealLoad4 - normalizedData.get(i).getAvgLoadRealData4(),2) * 2.0;			
-			sum += Math.pow(normTemperature3 - normalizedData.get(i).getAvgTemperature3(),2) * 1.2;
-			sum += Math.pow(normFeelslike3 - normalizedData.get(i).getAvgFeelslike3(),2) * 1.6;
+			sum += Math.pow(normTemperature3 - normalizedData.get(i).getMaxTemperature3(),2) * 1.2;
+			sum += Math.pow(normFeelslike3 - normalizedData.get(i).getMinTemperature3(),2) * 1.6;
 			sum += Math.pow(normRealLoad3 - normalizedData.get(i).getAvgLoadRealData3(),2) * 2.6;
-			sum += Math.pow(normTemperature2 - normalizedData.get(i).getAvgTemperature2(),2) * 1.4;
-			sum += Math.pow(normFeelslike2 - normalizedData.get(i).getAvgFeelslike2(),2) * 1.8;
+			sum += Math.pow(normTemperature2 - normalizedData.get(i).getMaxTemperature2(),2) * 1.4;
+			sum += Math.pow(normFeelslike2 - normalizedData.get(i).getMinTemperature2(),2) * 1.8;
 			sum += Math.pow(normRealLoad2 - normalizedData.get(i).getAvgLoadRealData2(),2) * 3.2;			
 			
 			dist = Math.sqrt(sum);			
