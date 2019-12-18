@@ -5,8 +5,11 @@
  */
 package deloitte.forecastsystem_bih.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.repository.query.Param;
 
 import deloitte.forecastsystem_bih.model.WeatherForecast;
 import deloitte.forecastsystem_bih.model.WeatherForecastDaily;
@@ -22,5 +25,7 @@ public interface WeatherForecastDailyService {
     public <S extends WeatherForecastDaily> S save(S s);
     public void delete(WeatherForecastDaily t);
     public List<WeatherForecastDaily> findByDate(WeatherForecast p_weatherForecast);    
-         
+     
+    public List<WeatherForecastDaily> findByDay(Date p_Day_forecast);    
+
 }

@@ -12,10 +12,12 @@ import org.springframework.stereotype.Service;
 import deloitte.forecastsystem_bih.model.Country;
 import deloitte.forecastsystem_bih.model.PreparedDataLoadHours;
 import deloitte.forecastsystem_bih.model.WeatherForecast;
+import deloitte.forecastsystem_bih.model.WeatherForecastDaily;
 import deloitte.forecastsystem_bih.model.WeatherForecastHourly;
 import deloitte.forecastsystem_bih.model.communication.PreparedDataLoadHoursRecord;
 import deloitte.forecastsystem_bih.service.HistoryLoadForecastService;
 import deloitte.forecastsystem_bih.service.PreparedDataLoadHoursService;
+import deloitte.forecastsystem_bih.service.WeatherForecastDailyService;
 import deloitte.forecastsystem_bih.service.WeatherForecastHourlyService;
 import deloitte.forecastsystem_bih.service.WeatherForecastService;
 
@@ -30,7 +32,7 @@ public class SimilarDayInputDataService {
 	WeatherForecastService weatherForecastService;
 	
 	@Autowired
-	WeatherForecastHourlyService weatherForecastHourlyService;
+	WeatherForecastDailyService weatherForecastDailyService;
 	
 	@Autowired
 	HistoryLoadForecastService historyLoadForecastService;
@@ -120,13 +122,12 @@ public class SimilarDayInputDataService {
 			calTomorrow.set(Calendar.SECOND, 0);
 			calTomorrow.set(Calendar.MILLISECOND, 0);								
 			
-			List<WeatherForecast> weatherForecastList;
-			List<WeatherForecastHourly> weatherForecastResults;
+			//List<WeatherForecast> weatherForecastList;
+			List<WeatherForecastDaily> weatherForecastResults;
 			
 			try {
-			 weatherForecastList = weatherForecastService.findByDate(con, calYesterday.getTime());
-			 Integer startPos = weatherForecastHourlyService.findByDayForecatsByHourStart(weatherForecastList.get(0), calTomorrow.getTime());
-			 weatherForecastResults = weatherForecastHourlyService.findByDayForecatsByHour(weatherForecastList.get(0), calTomorrow.getTime(), i+startPos);
+			// weatherForecastList = weatherForecastService.findByDate(con, calYesterday.getTime());
+			 weatherForecastResults = weatherForecastDailyService.findByDay(calTomorrow.getTime());
 			} catch (Exception e) {
 				return null;
 			}			
@@ -137,19 +138,19 @@ public class SimilarDayInputDataService {
 			List<Double> forecastLoad = historyLoadForecastService.findByDateLoadAndHour(con, calYesterday.getTime(), i);
 			
 			// avgForecastTemperature
-			inputDataForTomorrow[i].setMaxTemperature2(weatherForecastResults.get(0).getTemperature());
-			inputDataForTomorrow[i].setMinTemperature2(weatherForecastResults.get(0).getApparentTemperature());
+			inputDataForTomorrow[i].setMaxTemperature2(weatherForecastResults.get(0).getTemperatureMax());
+			inputDataForTomorrow[i].setMinTemperature2(weatherForecastResults.get(0).getTemperatureMin());
 			inputDataForTomorrow[i].setAvgLoadRealData2(forecastLoad.get(0)); 
 
-//			// avgTemperature2		
-//			inputDataForTomorrow[i].setMaxTemperature3(pdlh.get(0).getAvgTemperature());
-//			inputDataForTomorrow[i].setMinFeelslike3(pdlh.get(0).getAvgFeelslike());
-//			inputDataForTomorrow[i].setAvgLoadRealData3(pdlh.get(0).getAvgLoadRealData());
-//			
-//			// avgTemperature3		
-//			inputDataForTomorrow[i].setMaxTemperature4(pdlh.get(0).getAvgTemperature2());
-//			inputDataForTomorrow[i].setMinFeelslike4(pdlh.get(0).getAvgFeelslike2());
-//			inputDataForTomorrow[i].setAvgLoadRealData4(pdlh.get(0).getAvgLoadRealData2());		
+			// avgTemperature2		
+			inputDataForTomorrow[i].setMaxTemperature3(pdlh.get(0).getMaxTemperature());
+			inputDataForTomorrow[i].setMinTemperature3(pdlh.get(0).getMinTemperature());
+			inputDataForTomorrow[i].setAvgLoadRealData3(pdlh.get(0).getAvgLoadRealData());
+			
+			// avgTemperature3		
+			inputDataForTomorrow[i].setMaxTemperature4(pdlh.get(0).getMaxTemperature2());
+			inputDataForTomorrow[i].setMinTemperature4(pdlh.get(0).getMinTemperature2());
+			inputDataForTomorrow[i].setAvgLoadRealData4(pdlh.get(0).getAvgLoadRealData2());		
 			
 			inputDataForTomorrow[i].setAvgLoadRealData(0.0);
 			inputDataForTomorrow[i].setId(0L); 			

@@ -5,6 +5,7 @@
  */
 package deloitte.forecastsystem_bih.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,11 @@ public class WeatherForecastDailyServiceImpl implements WeatherForecastDailyServ
     public List<WeatherForecastDaily> findByDate(WeatherForecast p_weatherForecast) {
         return weatherForecastDailyDAO.findByDate(p_weatherForecast);
     }
+
+	@Override
+	public List<WeatherForecastDaily> findByDay(Date p_Day_forecast) {
+		// TODO Auto-generated method stub
+		return weatherForecastDailyDAO.findByDay(p_Day_forecast);
+	}
     
 }

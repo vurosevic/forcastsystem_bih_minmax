@@ -35,5 +35,8 @@ public interface WeatherForecastDailyRepository extends CrudRepository<WeatherFo
     
     @Query("SELECT wfd FROM WeatherForecastDaily wfd WHERE weatherForecast=:p_weatherForecast")
     public List<WeatherForecastDaily> findByDate(@Param("p_weatherForecast") WeatherForecast p_weatherForecast);    
-        
+
+    @Query("SELECT wfd FROM WeatherForecastDaily wfd WHERE dayForecast=:p_Day_forecast ORDER BY id DESC")
+    public List<WeatherForecastDaily> findByDay(@Param("p_Day_forecast") Date p_Day_forecast);    
+    
 }
