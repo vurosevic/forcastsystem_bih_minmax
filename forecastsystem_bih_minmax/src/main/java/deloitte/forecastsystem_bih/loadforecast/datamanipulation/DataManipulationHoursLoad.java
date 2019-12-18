@@ -7,7 +7,7 @@ public class DataManipulationHoursLoad implements DataManipulation {
 
 	CountriesEnum country;
 	private final String connectionUrl = "jdbc:mysql://localhost/deloitteforecast_bih?user=epss&password=epss.EPSS&useUnicode=yes&characterEncoding=UTF-8&verifyServerCertificate=false&useSSL=false";
-	private final String startPath = "c:/data/bih/hours/";
+	private final String startPath = "c:/data/bih/minmaxhours/";
 	
 	public DataManipulationHoursLoad() {
 		this.country = CountriesEnum.CO_BIH;

@@ -34,7 +34,7 @@ import deloitte.forecastsystem_bih.loadforecast.datamanipulation.DataManipulatio
 
 public class MlpNetHoursLoad implements MlpNet {
 
-	String savePath = "c:/data/bih/hours/saves/";
+	String savePath = "c:/data/bih/minmaxhours/saves/";
 	String modelNamePart = "data_";
 	String earlyStoppingPart = "mlpModel_";
 	

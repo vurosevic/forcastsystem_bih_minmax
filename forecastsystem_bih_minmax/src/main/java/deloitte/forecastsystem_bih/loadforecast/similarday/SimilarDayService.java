@@ -102,6 +102,24 @@ public class SimilarDayService {
 		distance = new ArrayList<Double>();		
 	}		
 	
+	public void setLater(Country con, Long id) {
+		// TODO Auto-generated constructor stub
+		this.con = con;
+		this.id = id;
+		
+//		this.maxTemperature = preparedDataLoadHoursService.getDataForSimilarDayMaxTemp(con);
+//		this.minTemperature = preparedDataLoadHoursService.getDataForSimilarDayMinTemp(con);
+//		this.maxFeelslike = preparedDataLoadHoursService.getDataForSimilarDayMaxFeelslike(con);
+//		this.minFeelslike = preparedDataLoadHoursService.getDataForSimilarDayMinFeelslike(con);
+//		this.maxRealLoad = preparedDataLoadHoursService.getDataForSimilarDayMaxRealData(con);
+//		this.minRealLoad = preparedDataLoadHoursService.getDataForSimilarDayMinRealData(con);		
+//		this.data = preparedDataLoadHoursService.getDataForSimilarDay(con); 		
+//		this.dataByHour = preparedDataLoadHoursService.getDataForSimilarDay(con);
+		
+//		normalizedData = new ArrayList<PreparedDataLoadHoursRecord>();	
+		distance = new ArrayList<Double>();		
+	}	
+	
 	public void normalizeData() {
 		
 		Double normTemperature4;

@@ -20,7 +20,7 @@ import deloitte.forecastsystem_bih.loadforecast.systemforecast.task.TaskEarlySto
 @Configurable
 public class SystemForecastHoursLoad implements SystemForecast {
 
-	String savePath = "c:/data/bih/hours/saves/";
+	String savePath = "c:/data/bih/minmaxhours/saves/";
 	String modelNamePart = "data_";
 	String earlyStoppingPart = "mlpModel_";	 
 	
@@ -39,13 +39,13 @@ public class SystemForecastHoursLoad implements SystemForecast {
 		
 		nets = new ArrayList<MlpNetHoursLoad>();
 		
-		nEpoch = 8000;
+		nEpoch = 4000;
 		nSamples = 26000; // 26000 33000
 		numInputs = 41; // 41 37
 		numOutputs = 1;
 		momentum = 0.9;
-		learningRate = 0.002555; // 0.001555
-		batchSize = 80; //35 250 75
+		learningRate = 0.001555; // 0.001555
+		batchSize = 75; //35 250 75
 		        
         MlpNetHoursLoad mnetBIH = new MlpNetHoursLoad(nEpoch, nSamples, numInputs, numOutputs, CountriesEnum.CO_BIH, momentum, learningRate, batchSize, savePath, modelNamePart, earlyStoppingPart);
         mnetBIH.initNetwork();
