@@ -33,6 +33,7 @@ public class SimilarDayService {
 	
 	List<PreparedDataLoadHoursRecord> normalizedData;
 	List<Double> distance;
+	List<Integer> indexResults;
 	
 	@Autowired 
 	PreparedDataLoadHoursService preparedDataLoadHoursService;
@@ -43,7 +44,8 @@ public class SimilarDayService {
 	public SimilarDayService() {
 		// TODO Auto-generated constructor stub
 		normalizedData = new ArrayList<PreparedDataLoadHoursRecord>();		
-		distance = new ArrayList<Double>();			
+		distance = new ArrayList<Double>();
+		indexResults = new ArrayList<>();
 	}
 	
 	public SimilarDayService(Country con, Long id, Integer loadHour) {
@@ -62,7 +64,8 @@ public class SimilarDayService {
 		this.dataByHour = preparedDataLoadHoursService.getDataForSimilarDay(con, id, loadHour);
 		
 //		normalizedData = new ArrayList<PreparedDataLoadHoursRecord>();		
-		distance = new ArrayList<Double>();		
+		distance = new ArrayList<Double>();
+		indexResults = new ArrayList<>();
 	}
 	
 	public void set(Country con, Long id, Integer loadHour) {
@@ -81,7 +84,8 @@ public class SimilarDayService {
 		this.dataByHour = preparedDataLoadHoursService.getDataForSimilarDay(con, id, loadHour);
 		
 //		normalizedData = new ArrayList<PreparedDataLoadHoursRecord>();	
-		distance = new ArrayList<Double>();		
+		distance = new ArrayList<Double>();
+		indexResults = new ArrayList<>();
 	}
 	
 	public void set(Country con, Long id) {
@@ -100,6 +104,7 @@ public class SimilarDayService {
 		
 //		normalizedData = new ArrayList<PreparedDataLoadHoursRecord>();	
 		distance = new ArrayList<Double>();		
+		indexResults = new ArrayList<>();
 	}		
 	
 	public void setLater(Country con, Long id) {
@@ -118,6 +123,7 @@ public class SimilarDayService {
 		
 //		normalizedData = new ArrayList<PreparedDataLoadHoursRecord>();	
 		distance = new ArrayList<Double>();		
+		indexResults = new ArrayList<>();
 	}	
 	
 	public void normalizeData() {
@@ -219,11 +225,30 @@ public class SimilarDayService {
 				minIndex = i;
 			}
 		}
-				
+		
+//		indexResults.add(minIndex);
+//
+//		for (int i=0; i<distance.size()-1; i++) {
+//			if (i != minIndex) {				
+//				if ((distance.get(i)/distance.get(minIndex)) < 1.03 )				
+//					indexResults.add(i);		
+//			}
+//		}		
+
 		return minIndex;
 	}
 	
 	public Double getForecast() {
+		
+//		Double res=0.0;
+//		getMinIndex();
+//		
+//		for (int i=0; i<indexResults.size(); i++) {
+//			res += normalizedData.get(indexResults.get(i)).getAvgLoadRealData();
+//		}
+//		
+//		res /= indexResults.size();
+//		return res;
 		return normalizedData.get(getMinIndex()).getAvgLoadRealData();
 	}
 	

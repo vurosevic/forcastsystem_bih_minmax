@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import deloitte.forecastsystem_bih.loadforecast.config.CountriesEnum;
 import deloitte.forecastsystem_bih.model.WeatherForecast;
+import deloitte.forecastsystem_bih.model.WeatherForecastDaily;
 import deloitte.forecastsystem_bih.model.WeatherForecastHourly;
 //import deloitte.forecastsystem_bih.model.communication.LoadEntsoeForecastSumRecord;
 import deloitte.forecastsystem_bih.model.communication.WeatherForecastRecord;
@@ -22,6 +23,7 @@ import deloitte.forecastsystem_bih.service.LoadForecastSimilarDayService;
 import deloitte.forecastsystem_bih.service.PreparedDataLoadHoursService;
 import deloitte.forecastsystem_bih.service.TempLoadForecastArimaService;
 import deloitte.forecastsystem_bih.service.TempLoadForecastSimilarDayService;
+import deloitte.forecastsystem_bih.service.WeatherForecastDailyService;
 import deloitte.forecastsystem_bih.service.WeatherForecastHourlyService;
 import deloitte.forecastsystem_bih.service.WeatherForecastService;
 
@@ -84,7 +86,8 @@ public class DataVectorHoursLoad implements  DataVector {
 	WeatherForecastService weatherForecastService;
 	
 	@Autowired
-	WeatherForecastHourlyService weatherForecastHourlyService;
+	//WeatherForecastHourlyService weatherForecastHourlyService;
+	WeatherForecastDailyService	weatherForecastDailyService;
 	
 	@Autowired
 	TempLoadForecastArimaService loadForecastArimaService;
@@ -138,13 +141,14 @@ public class DataVectorHoursLoad implements  DataVector {
 //		System.out.println("DateYesterday: " + dateYesterday);
 //		System.out.println("DateToday: " + dateToday);		
 		
-		List<WeatherForecast> weatherForecastList;
-		List<WeatherForecastHourly> weatherForecastResults;
+		//List<WeatherForecast> weatherForecastList;
+		List<WeatherForecastDaily> weatherForecastResults;
 		
 		try {
-		 weatherForecastList = weatherForecastService.findByDate(countryService.findById(Long.valueOf(this.getCountry().ordinal()+1)), dateYesterday);
-		 Integer startPos = weatherForecastHourlyService.findByDayForecatsByHourStart(weatherForecastList.get(0), dateToday);
-		 weatherForecastResults = weatherForecastHourlyService.findByDayForecatsByHour(weatherForecastList.get(0), dateToday, loadHour+startPos);
+		 //weatherForecastList = weatherForecastService.findByDate(countryService.findById(Long.valueOf(this.getCountry().ordinal()+1)), dateYesterday);
+//		 Integer startPos = weatherForecastHourlyService.findByDayForecatsByHourStart(weatherForecastList.get(0), dateToday);
+//		 weatherForecastResults = weatherForecastHourlyService.findByDayForecatsByHour(weatherForecastList.get(0), dateToday, loadHour+startPos);
+		 weatherForecastResults = weatherForecastDailyService.findByDay(dateToday); 
 		} catch (Exception e) {
 			return null;
 		}
@@ -154,8 +158,8 @@ public class DataVectorHoursLoad implements  DataVector {
 		
 		double[] res = preparedDataLoadHoursService.findByDate(this.loadHour, this.dan, this.mesec, this.godina, countryService.findById(Long.valueOf(this.getCountry().ordinal()+1))).get(0).preparedVector();
 		
-		res[33] = weatherForecastResults.get(0).getTemperature();
-		res[34] = weatherForecastResults.get(0).getApparentTemperature();
+		res[33] = weatherForecastResults.get(0).getTemperatureMax();
+		res[34] = weatherForecastResults.get(0).getTemperatureMin();
 		res[35] = weatherForecastResults.get(0).getWindSpeed();
 		res[36] = weatherForecastResults.get(0).getHumidity();
 		res[37] = weatherForecastResults.get(0).getDewPoint();
@@ -185,13 +189,14 @@ public class DataVectorHoursLoad implements  DataVector {
 //		System.out.println("DateYesterday: " + dateYesterday);
 //		System.out.println("DateToday: " + dateToday);		
 		
-		List<WeatherForecast> weatherForecastList;
-		List<WeatherForecastHourly> weatherForecastResults;
+//		List<WeatherForecast> weatherForecastList;
+		List<WeatherForecastDaily> weatherForecastResults;
 		
 		try {
-		 weatherForecastList = weatherForecastService.findByDate(countryService.findById(Long.valueOf(this.getCountry().ordinal()+1)), dateYesterday);
-		 Integer startPos = weatherForecastHourlyService.findByDayForecatsByHourStart(weatherForecastList.get(0), dateToday);
-		 weatherForecastResults = weatherForecastHourlyService.findByDayForecatsByHour(weatherForecastList.get(0), dateToday, loadHour+startPos);
+//		 weatherForecastList = weatherForecastService.findByDate(countryService.findById(Long.valueOf(this.getCountry().ordinal()+1)), dateYesterday);
+//		 Integer startPos = weatherForecastHourlyService.findByDayForecatsByHourStart(weatherForecastList.get(0), dateToday);
+//		 weatherForecastResults = weatherForecastHourlyService.findByDayForecatsByHour(weatherForecastList.get(0), dateToday, loadHour+startPos);
+	     weatherForecastResults = weatherForecastDailyService.findByDay(dateToday);			
 		} catch (Exception e) {
 			return null;
 		}
@@ -201,13 +206,14 @@ public class DataVectorHoursLoad implements  DataVector {
 		List<Double> historyLoadForecastResult = historyLoadForecastService.findByDateLoadAndHour(countryService.findById(Long.valueOf(this.getCountry().ordinal()+1)), dateToday, loadHour);	
 
 		// tomorrow
-		List<WeatherForecast> weatherForecastListTomorrow;		
-		List<WeatherForecastHourly> weatherForecastResultsTomorrow;
+//		List<WeatherForecast> weatherForecastListTomorrow;		
+		List<WeatherForecastDaily> weatherForecastResultsTomorrow;
 		
 		try {
-			weatherForecastListTomorrow = weatherForecastService.findByDate(countryService.findById(Long.valueOf(this.getCountry().ordinal()+1)), dateToday);
-		 Integer startPos = weatherForecastHourlyService.findByDayForecatsByHourStart(weatherForecastListTomorrow.get(0), dateTomorrow);
-		 weatherForecastResultsTomorrow = weatherForecastHourlyService.findByDayForecatsByHour(weatherForecastListTomorrow.get(0), dateTomorrow, loadHour+startPos);
+//			weatherForecastListTomorrow = weatherForecastService.findByDate(countryService.findById(Long.valueOf(this.getCountry().ordinal()+1)), dateToday);
+//		 Integer startPos = weatherForecastHourlyService.findByDayForecatsByHourStart(weatherForecastListTomorrow.get(0), dateTomorrow);
+//		 weatherForecastResultsTomorrow = weatherForecastHourlyService.findByDayForecatsByHour(weatherForecastListTomorrow.get(0), dateTomorrow, loadHour+startPos);
+		 weatherForecastResultsTomorrow = weatherForecastDailyService.findByDay(dateTomorrow); 			
 		} catch (Exception e) {
 			return null;
 		}
@@ -217,8 +223,8 @@ public class DataVectorHoursLoad implements  DataVector {
 		
 		double[] res = preparedDataLoadHoursService.findByDate(this.loadHour, this.dan, this.mesec, this.godina, countryService.findById(Long.valueOf(this.getCountry().ordinal()+1))).get(0).preparedVector();
 
-		res[24] = weatherForecastResults.get(0).getTemperature();
-		res[25] = weatherForecastResults.get(0).getApparentTemperature();
+		res[24] = weatherForecastResults.get(0).getTemperatureMax();
+		res[25] = weatherForecastResults.get(0).getTemperatureMin();
 		res[26] = weatherForecastResults.get(0).getWindSpeed();
 		res[27] = weatherForecastResults.get(0).getHumidity();
 		res[28] = weatherForecastResults.get(0).getDewPoint();
@@ -227,8 +233,8 @@ public class DataVectorHoursLoad implements  DataVector {
 		res[31] = loadSimilarDayForecastResult.get(0); // similar_day_forecast
 		res[32] = historyLoadForecastResult.get(0); //load forecast for today 
 		
-		res[33] = weatherForecastResultsTomorrow.get(0).getTemperature();
-		res[34] = weatherForecastResultsTomorrow.get(0).getApparentTemperature();
+		res[33] = weatherForecastResultsTomorrow.get(0).getTemperatureMax();
+		res[34] = weatherForecastResultsTomorrow.get(0).getTemperatureMin();
 		res[35] = weatherForecastResultsTomorrow.get(0).getWindSpeed();
 		res[36] = weatherForecastResultsTomorrow.get(0).getHumidity();
 		res[37] = weatherForecastResultsTomorrow.get(0).getDewPoint();

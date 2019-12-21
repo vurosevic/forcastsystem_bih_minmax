@@ -407,7 +407,7 @@ public class CommandCenter {
 		
 		PreparedDataLoadHours recData = preparedDataLoadHoursService.findById(number).get();
 		
-		similarDayService.set(con, startPos);
+		similarDayService.setLater(con, startPos);
 		startPos++;
 		
 		PreparedDataLoadHoursRecord rec = new PreparedDataLoadHoursRecord(number, recData.getMaxTemperature4() , recData.getMinTemperature4() , recData.getAvgLoadRealData4(), 
@@ -530,7 +530,7 @@ public class CommandCenter {
 		for (int i=0; i<24; i++) {
 			
 			TempLoadForecastSimilarDay lfsd = new TempLoadForecastSimilarDay();		
-			similarDayService.set(con, Long.valueOf(res_dan.length-1));
+			similarDayService.setLater(con, Long.valueOf(res_dan.length-1));
 			similarDayService.calculateDistance(similarDayInputDataService.getInputDataForToday()[i]);
 			 			
 			lfsd.setCountry(con);
@@ -631,7 +631,7 @@ public class CommandCenter {
 		for (int i=0; i<24; i++) {
 			
 			TempLoadForecastSimilarDay lfsd = new TempLoadForecastSimilarDay();		
-			similarDayService.set(con, Long.valueOf(res_dan.length-1));
+			similarDayService.setLater(con, Long.valueOf(res_dan.length-1));
 			similarDayService.calculateDistance(similarDayInputDataService.getInputDataForTomorrow()[i]);
 			 			
 			lfsd.setCountry(con);

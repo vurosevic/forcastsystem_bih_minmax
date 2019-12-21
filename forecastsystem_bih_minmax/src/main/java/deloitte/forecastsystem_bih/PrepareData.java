@@ -28,8 +28,8 @@ public class PrepareData implements CommandLineRunner {
 	
 		System.out.println("PREPARE DATA SERVICE: ");
 				
-//		commandCenter.runWeatherForecastService();
-//		commandCenter.runWeatherHistoryService();
+		commandCenter.runWeatherForecastService();
+		commandCenter.runWeatherHistoryService();
 		
 		commandCenter.runPreparePartialInputDataHourlyStart();
 		commandCenter.runPartialArimaService();

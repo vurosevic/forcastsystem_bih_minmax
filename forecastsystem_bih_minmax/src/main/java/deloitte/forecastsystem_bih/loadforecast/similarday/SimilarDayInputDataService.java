@@ -140,6 +140,10 @@ public class SimilarDayInputDataService {
 			// avgForecastTemperature
 			inputDataForTomorrow[i].setMaxTemperature2(weatherForecastResults.get(0).getTemperatureMax());
 			inputDataForTomorrow[i].setMinTemperature2(weatherForecastResults.get(0).getTemperatureMin());
+			
+//			inputDataForTomorrow[i].setMaxTemperature2(weatherForecastResults.get(0).getTemperatureHigh());
+//			inputDataForTomorrow[i].setMinTemperature2(weatherForecastResults.get(0).getTemperatureLow());			
+			
 			inputDataForTomorrow[i].setAvgLoadRealData2(forecastLoad.get(0)); 
 
 			// avgTemperature2		
