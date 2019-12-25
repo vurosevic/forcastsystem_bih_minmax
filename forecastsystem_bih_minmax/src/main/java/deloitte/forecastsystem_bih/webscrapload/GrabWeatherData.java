@@ -81,7 +81,11 @@ public class GrabWeatherData {
                    ld.setPressure(Double.parseDouble(pressure.substring(0, pressure.length()-4)));                                                             
                    ld.setCountry(getCountry()); 
                    ld.setId(0L);
-                   getWeatherDataList().add(ld);
+                   
+                   if ((ld.getWeatherHour()==0)&&(pom>2)) {
+                	   System.out.println("Ignore WEATHER record: " + ld.toString());
+                   } else getWeatherDataList().add(ld);
+                   
                    } catch (Exception ex) {
                        System.out.println(ex.getMessage());
                    };
