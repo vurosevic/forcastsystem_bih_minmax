@@ -9,7 +9,7 @@ import deloitte.forecastsystem_bih.commandcenter.CommandCenter;
 import deloitte.forecastsystem_bih.model.Country;
 import deloitte.forecastsystem_bih.service.CountryService;
 
-@SpringBootApplication(scanBasePackages={"deloitte.*"})
+//@SpringBootApplication(scanBasePackages={"deloitte.*"})
 public class PrepareData implements CommandLineRunner {
 	
 	@Autowired

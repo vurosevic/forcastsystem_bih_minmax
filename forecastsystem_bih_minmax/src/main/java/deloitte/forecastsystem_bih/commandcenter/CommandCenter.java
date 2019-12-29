@@ -116,8 +116,12 @@ public class CommandCenter {
   @Autowired
   PartialInputDataHourlyCompleteService partialInputDataHourlyCompleteService;  
 	
-	public void runWeatherHistoryService() throws InterruptedException {
+	public Boolean runWeatherHistoryService() {
 		
+		  Boolean res = Boolean.FALSE;
+		
+		  try {
+		  
 		  DateFormat dateFormatWeather = new SimpleDateFormat("yyyy-MM-dd");  
 
 	      System.out.println("--- DELOITTE SOFTWARE ---");
@@ -156,12 +160,23 @@ public class CommandCenter {
 	              }      
 	      }
 	      
-	      System.out.println("--- END WEBSCRAPPING WEATHER DATA ---");		  
+	      res = Boolean.TRUE;
+	      System.out.println("--- END WEBSCRAPPING WEATHER DATA ---");
+		  } catch (Exception e) {
+			// TODO: handle exception
+			  res = Boolean.FALSE;
+		}
+		  
+	 return res;
 		
 	}
 	
-	public void runWeatherForecastService() throws ParseException {
+	public Boolean runWeatherForecastService() {
 
+		Boolean res = Boolean.FALSE;
+		
+		try {
+		
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date()); 
         Date datum= cal.getTime();
@@ -295,11 +310,22 @@ public class CommandCenter {
                     weatherForecastHourlyService.save(wfh);                
             }            
           
-        System.out.println("--- END WEBSCRAP SERVICE FORECAST WEATHER ---");	
+        res = Boolean.TRUE;    
+        System.out.println("--- END WEBSCRAP SERVICE FORECAST WEATHER ---");
+        
+		} catch (Exception e) {
+			// TODO: handle exception
+			res = Boolean.FALSE;
+		}
 		
+		return res;
 	}
 	
-	public void runPartialArimaService() {
+	public Boolean runPartialArimaService() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		System.out.println("--- DELOITTE SOFTWARE ---");
 		System.out.println("--- PARTIAL ARIMA SERVICE ---");
@@ -319,7 +345,7 @@ public class CommandCenter {
 		
 		if (startId == null) {
 			System.out.println("No data for update...");
-			return;
+			return result;
 		}
 		
 		arimaModelService.setDataArray(res);
@@ -344,7 +370,7 @@ public class CommandCenter {
         
 		if (startPos == -1) {
 			System.out.println("No data for update...");
-			return;
+			return result;
 		}        
 		
 		for (int i=startPos.intValue(); i<res.length; i++) {			
@@ -368,11 +394,22 @@ public class CommandCenter {
 					loadForecastArimaService.save(lfa);					
 		}
 		
-		System.out.println("--- END PARTIAL ARIMA SERVICE ---");		
+		result = Boolean.TRUE;
+		System.out.println("--- END PARTIAL ARIMA SERVICE ---");	
 		
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 	}
 	
-	public void runPartialSimilarDayService() {
+	public Boolean runPartialSimilarDayService() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		System.out.println("--- PARTIAL SIMILAR DAY SERVICE ---");
 		
@@ -386,7 +423,7 @@ public class CommandCenter {
 		
 		if (startId == null) {
 			System.out.println("No data for update...");
-			return;
+			return result;
 		}
 		
         Long startPos = -1L; 
@@ -431,11 +468,23 @@ public class CommandCenter {
 		
 		} // number
 		
-		System.out.println("--- END PARTIAL SIMILAR DAY SERVICE ---");			
+		result = Boolean.TRUE;
+		System.out.println("--- END PARTIAL SIMILAR DAY SERVICE ---");		
+		
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 		
 	}
 	
-	public void runArimaForecastService() {
+	public Boolean runArimaForecastService() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		System.out.println("--- DELOITTE  FORECAST ---");
 		System.out.println("--- ARIMA FORECAST SERVICE- --");
@@ -496,11 +545,23 @@ public class CommandCenter {
 		tempLoadForecastArimaService.save(lfa);
         }        
 		
-        System.out.println("-- END ARIMA FORECAST SERVICE ---");		
+        result = Boolean.TRUE;
+        System.out.println("-- END ARIMA FORECAST SERVICE ---");	
+        
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 		
 	}
 	
-	public void runSimilarDayTodayService() {
+	public Boolean runSimilarDayTodayService() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		System.out.println("--- DELOITTE  FORECAST ---");
 		System.out.println("--- SIMILAR DAY FORECAST TODAY SERVICE ---");		
@@ -544,11 +605,23 @@ public class CommandCenter {
 			
 		}
 
+		result = Boolean.TRUE;
         System.out.println("--- END SIMILAR DAY FORECAST TODAY SERVICE ---");		
+        
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 		
 	}
 	
-	public void runLoadForecastTodayService() {
+	public Boolean runLoadForecastTodayService() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		System.out.println("--- DELOITTE  FORECAST ---");
 		System.out.println("--- LOAD FORECAST TODAY SERVICE ---");		
@@ -596,12 +669,23 @@ public class CommandCenter {
     		
     		historyLoadForecastService.save(historyLoadForecast); 
     	}
+    	    result = Boolean.TRUE;
             System.out.println("--- END LOAD FORECAST TODAY SERVICE ---");
 		
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 		
 	}
 	
-	public void runSimilarDayTomorrowService() {
+	public Boolean runSimilarDayTomorrowService() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		System.out.println("--- DELOITTE  FORECAST ---");
 		System.out.println("--- SIMILAR DAY FORECAST TOMORROW SERVICE ---");				
@@ -645,11 +729,23 @@ public class CommandCenter {
 			
 		}
 
-        System.out.println("--- END ---");			
+		result = Boolean.TRUE;
+        System.out.println("--- END ---");
+        
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 		
 	}
 	
-	public void runLoadForecastTomorrowService() {
+	public Boolean runLoadForecastTomorrowService() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		System.out.println("--- DELOITTE  FORECAST ---");
 		System.out.println("--- LOAD FORECAST TOMORROW SERVICE ---");				
@@ -702,11 +798,23 @@ public class CommandCenter {
     		
     		historyLoadForecastService.save(historyLoadForecast); 
     	}
-            System.out.println("--- END LOAD FORECAST TOMORROW SERVICE ---");  		
+    	    result = Boolean.TRUE;
+            System.out.println("--- END LOAD FORECAST TOMORROW SERVICE ---");  	
+            
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 		
 	}
 
-	public void runPreparePartialInputDataHourlyStart() {
+	public Boolean runPreparePartialInputDataHourlyStart() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		List<PartialInputDataHourlyStart> listData = partialInputDataHourlyStartService.findAll();
 		
@@ -771,9 +879,22 @@ public class CommandCenter {
 			preparedDataLoadHoursService.save(sRec);
 		}
 		
+		   result = Boolean.TRUE;
+		   
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
+		
 	}
 	
-	public void runPreparePartialInputDataHourlyComplete() {
+	public Boolean runPreparePartialInputDataHourlyComplete() {
+		
+		Boolean result = Boolean.FALSE;
+		
+		try {
 		
 		// delete start data		
 		List<PreparedDataLoadHours> oldData = preparedDataLoadHoursService.getPartialData(countryService.findById(2L)); 
@@ -843,7 +964,17 @@ public class CommandCenter {
 			sRec.setAvgLoadForecastSimilarDay4(rec.getAvgLoadForecastSimilarDay4());
 			
 			preparedDataLoadHoursService.save(sRec);
-		}				
+		}		
+		
+		  result = Boolean.TRUE;
+		  
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = Boolean.FALSE;
+		}
+		
+		return result;
 		
 	}
+		
 }
