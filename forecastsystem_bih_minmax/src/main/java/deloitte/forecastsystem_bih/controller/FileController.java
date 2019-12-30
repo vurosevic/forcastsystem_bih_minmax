@@ -16,6 +16,7 @@ import deloitte.forecastsystem_bih.filestorage.CheckUploadService;
 import deloitte.forecastsystem_bih.filestorage.CopyDataStatusEnum;
 import deloitte.forecastsystem_bih.filestorage.CopyUploadToDbService;
 import deloitte.forecastsystem_bih.filestorage.FileStorageService;
+import deloitte.forecastsystem_bih.filestorage.FileUploadStatusRecord;
 import deloitte.forecastsystem_bih.filestorage.ProcessingStatusEnum;
 import deloitte.forecastsystem_bih.filestorage.UploadStatusEnum;
 import deloitte.forecastsystem_bih.model.FileUploadTable;
@@ -48,6 +49,8 @@ public class FileController {
     @PostMapping("/uploadDailyLoad")
     public @ResponseBody Object uploadFile(@RequestParam("username") String username, @RequestParam("file") MultipartFile file) {
     	
+    	FileUploadStatusRecord resultRecord = new FileUploadStatusRecord();
+    	
     	System.out.println("Username: " + username);
     	System.out.println("File: " + file.getName());
     	System.out.println("Size: " + file.getSize());
@@ -70,6 +73,8 @@ public class FileController {
     	checkUploadService.setLoadDate(cLoadDateYesterday.getTime());
     	UploadStatusEnum uploadStatus = checkUploadService.getStatus(); 
     	CopyDataStatusEnum copyStatus = CopyDataStatusEnum.CDS_WAITHING; 
+		ProcessingStatusEnum result = ProcessingStatusEnum.PS_WAIT_FOR_PROCESSING;
+    	
     	if (uploadStatus == UploadStatusEnum.US_FILE_OK) {
     		System.out.println("File is OK...");    		
     		// coping file to DB    		
@@ -82,10 +87,7 @@ public class FileController {
     			System.out.println("File is not copied to db...");
     			copyStatus = CopyDataStatusEnum.CDS_ERROR;
     		}
-    		
-    		// processing data
-    		ProcessingStatusEnum result = ProcessingStatusEnum.PS_WAIT_FOR_PROCESSING;
-    		
+    		   		
     		if (commandCenter.runWeatherHistoryService()) {    			
     			// Ok, next
     			if (commandCenter.runWeatherForecastService()) {
@@ -167,13 +169,13 @@ public class FileController {
     		fut.setId(0L);
     		fut.setFilename(file.getOriginalFilename());
     		fut.setFileLoadDate(cLoadDateYesterday.getTime());
-    		fut.setUploadDatetime(new DateTime());
+    		fut.setUploadDatetime(new Date());
     		fut.setFileStatus(uploadStatus.value);
     		fut.setFileProcessingStatus(result.value);
     		fut.setUsername(username); 
     		fut.setFileCopyStatus(copyStatus.value);
     		
-    		//fileUploadTableService.save(fut);
+    		fileUploadTableService.save(fut); 		
     		
     	} else {
     		System.out.println("Error : " + uploadStatus); 
@@ -181,7 +183,11 @@ public class FileController {
     	
     	System.out.println("-------- END ------");
     	
-    	return ResponseEntity.status(HttpStatus.OK).body("");
+		resultRecord.setFileStatus(uploadStatus.value);
+		resultRecord.setFileCopyStatus(copyStatus.value);
+		resultRecord.setFileProcessingStatus(result.value);  
+    	
+    	return ResponseEntity.status(HttpStatus.OK).body(resultRecord);
     }
 
 }

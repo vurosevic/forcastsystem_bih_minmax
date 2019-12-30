@@ -32,7 +32,7 @@ public class FileUploadTable implements Serializable {
 	private String username;
 	
     @Column(name = "Upload_datetime")
-    private DateTime uploadDatetime;
+    private Date uploadDatetime;
     
 	@Column(name="Filename", nullable=false)
 	private String filename;
@@ -65,11 +65,11 @@ public class FileUploadTable implements Serializable {
 		this.username = username;
 	}
 
-	public DateTime getUploadDatetime() {
+	public Date getUploadDatetime() {
 		return uploadDatetime;
 	}
 
-	public void setUploadDatetime(DateTime uploadDatetime) {
+	public void setUploadDatetime(Date uploadDatetime) {
 		this.uploadDatetime = uploadDatetime;
 	}
 
