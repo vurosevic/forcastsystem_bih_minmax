@@ -16,8 +16,7 @@ public interface HistoryLoadForecastService {
 	Optional<HistoryLoadForecast> findById(Long id);
 	void delete(HistoryLoadForecast entity);
 	<S extends HistoryLoadForecast> S save(S entity);
-    public List<Double> findByDateLoadAndHour(@Param("p_country") Country p_country, @Param("p_loadDate") Date p_loadDate, 
-                                              @Param("p_loadHour") Integer p_loadHour); 	
+    public List<Double> findByDateLoadAndHour(Country p_country, Date p_loadDate, Integer p_loadHour); 	
 	
 	
 }

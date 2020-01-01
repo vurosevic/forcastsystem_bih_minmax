@@ -181,11 +181,11 @@ public class FileController {
     		System.out.println("Error : " + uploadStatus); 
     	}
     	
-    	System.out.println("-------- END ------");
+    	System.out.println("-------- END ------");    	
     	
-		resultRecord.setFileStatus(uploadStatus.value);
-		resultRecord.setFileCopyStatus(copyStatus.value);
-		resultRecord.setFileProcessingStatus(result.value);  
+		resultRecord.setFileStatus(uploadStatus.ordinal());
+		resultRecord.setFileCopyStatus(copyStatus.ordinal());
+		resultRecord.setFileProcessingStatus(result.ordinal());  
     	
     	return ResponseEntity.status(HttpStatus.OK).body(resultRecord);
     }

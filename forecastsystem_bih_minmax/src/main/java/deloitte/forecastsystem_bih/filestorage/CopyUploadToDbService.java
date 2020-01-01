@@ -90,7 +90,9 @@ public class CopyUploadToDbService {
 	        	loadService.save(loadYesterday);	
 	        	res = Boolean.TRUE;
 	        	
-	        }        
+	        }
+	        
+	        if (excelFile != null) excelFile.close();
 	        
 			} catch (FileNotFoundException e) {
 				res = Boolean.FALSE;

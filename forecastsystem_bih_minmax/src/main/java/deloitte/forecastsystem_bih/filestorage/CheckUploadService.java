@@ -64,6 +64,8 @@ public class CheckUploadService {
         	if (count>26) break;
         }
         
+        if (excelFile != null) excelFile.close();
+        
         if (count<26) res = Boolean.FALSE;
         else res = Boolean.TRUE;
         
@@ -89,7 +91,9 @@ public class CheckUploadService {
         	if (!datatypeSheet.getRow(i).getCell(0).getDateCellValue().equals(this.loadDate))
         		res = Boolean.FALSE;
         		break;
-        }        
+        }       
+        
+        if (excelFile != null) excelFile.close();
         
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -109,12 +113,14 @@ public class CheckUploadService {
         Sheet datatypeSheet = workbook.getSheetAt(0);
         Iterator<Row> iterator = datatypeSheet.iterator();
         
-        for (int i=2; i<24; i++) {
+        for (int i=2; i<26; i++) {
         	if (datatypeSheet.getRow(i).getCell(1).getNumericCellValue()!=(i-1)) {
         		res = Boolean.FALSE;
         		break;
         	}
-        }        
+        }      
+        
+        if (excelFile != null) excelFile.close();
         
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -145,12 +151,14 @@ public class CheckUploadService {
         	}        	
         }        
         
+        if (excelFile != null) excelFile.close();
+        
 		} catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }		
-				
+					
 		return res;
 	}	
 	
