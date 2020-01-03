@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 @Service("fileStorageProperties")
 public class FileStorageProperties {
     private String uploadDir;
+    private String downloadDir;
     
     public FileStorageProperties() {
 		// TODO Auto-generated constructor stub
     	this.uploadDir="C:\\data\\bih\\minmaxhours\\upload";
+    	this.downloadDir="C:\\data\\bih\\minmaxhours\\download";
 	}
     
     public String getUploadDir() {
@@ -20,4 +22,14 @@ public class FileStorageProperties {
     public void setUploadDir(String uploadDir) {
         this.uploadDir = uploadDir;
     }
+
+	public String getDownloadDir() {
+		return downloadDir;
+	}
+
+	public void setDownloadDir(String downloadDir) {
+		this.downloadDir = downloadDir;
+	}
+    
+    
 }
